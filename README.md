@@ -11,13 +11,13 @@ A backtracking algorithm tries to construct a solution to a computational proble
 
 > Equivalently, the game tree is the recursion tree of the algorithm !
 
-# When to apply *BackTracking* ?
+### When to apply *BackTracking* ?
 
 - Knowledge of Rules of the Game in Question
 - No randomness or hidden information that would end after a finite number of moves
     - Meaning : if we drop someone into middle of a game, and it is possible to win against another perfect player, the algorithm will tell how to win.
 
-# Game Tree
+### Game Tree
 
 A *state* of the game consists of the locations of all the pieces and the identity of the current player. These states can be connected into a ***game tree***, which has an edge from state *x* to state *y* if and only if the current player in state *x* can legally move to state *y*. The root of the game tree is the initial position of the game, and every path from the root to a leaf is a complete game. 
 
@@ -34,7 +34,7 @@ Let's define **good** and **bad** states for non-leaf nodes :
 - A non-leaf node in the game is bad if it has at least one bad child. ( On the other hand, starting from a bad state, we can only win if the opponent makes a mistake. )
 
 
-# Simple BackTracking Algorithm
+### Simple BackTracking Algorithm
 
 
 ```python

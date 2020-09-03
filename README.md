@@ -1,10 +1,13 @@
 # Sudoku Solver
------------------
+
+
 <p align="justify">
-
 > It is an important *recursive* strategy.
+</p>
 
+<p align="justify">
 A backtracking algorithm tries to construct a solution to a computational problem incrementally, one small piece at a time. Whenever the algorithm needs to decide between multiple alternatives to the next component of the solution, it recursively evaluates every alternative and then chooses the best one.
+</p>
 
 > At its core, this algorithm is just a depth-first search of the game tree.
 
@@ -12,14 +15,19 @@ A backtracking algorithm tries to construct a solution to a computational proble
 
 # When to apply *BackTracking* ?
 
+<p align="justify">
 - Knowledge of Rules of the Game in Question
 - No randomness or hidden information that would end after a finite number of moves
     - Meaning : if we drop someone into middle of a game, and it is possible to win against another perfect player, the algorithm will tell how to win.
+</p>
 
 # Game Tree
 
+<p align="justify">
 A *state* of the game consists of the locations of all the pieces and the identity of the current player. These states can be connected into a ***game tree***, which has an edge from state *x* to state *y* if and only if the current player in state *x* can legally move to state *y*. The root of the game tree is the initial position of the game, and every path from the root to a leaf is a complete game. 
+</p>
 
+<p align="justify">
 To navigate through this game tree, we recursively define a game state to be **good** or **bad** as follows:
 
 - A game state is "good" if either the current player has already won, or if the current player can lead the opposing player into a bad state.
@@ -29,8 +37,12 @@ Let's define **good** and **bad** states for non-leaf nodes :
 
 - A non-leaf node in the game tree is good if it has all good children. ( By induction, any player that finds the game in a good state on their turn can win the game, even if their opponent plays perfectly. )
 - A non-leaf node in the game is bad if it has at least one bad child. ( On the other hand, starting from a bad state, we can only win if the opponent makes a mistake. )
+</p>
 
 # Simple BackTracking Algorithm
+
+
+<p align="justify">
 
 ```python
 def PlayAnyGame(X, player):

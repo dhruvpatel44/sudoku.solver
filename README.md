@@ -48,12 +48,12 @@ def PlayAnyGame(X, player):
 	if player has already lost in state X:
 		# We Lost
 		return Bad
-	
+
 	for all legal moves X to Y:
 		if PlayAnyGame(Y, -player) is Bad:
 			# X to Y is a good move.
-			return Good			
-	
+			return Good
+
 	# There are no good moves.
 	return Bad			
 ```

@@ -42,16 +42,20 @@ Let's define **good** and **bad** states for non-leaf nodes :
 ```python
 def PlayAnyGame(X, player):
 	if player has already won in state X:
-		return Good				# We Won
+		# We Won
+		return Good
 
 	if player has already lost in state X:
-		return Bad					# We Lost
+		# We Lost
+		return Bad
 	
 	for all legal moves X to Y:
 		if PlayAnyGame(Y, -player) is Bad:
-			return Good				# X to Y is a Good Move.
-
-	return Bad			# There are no good moves.
+			# X to Y is a good move.
+			return Good			
+	
+	# There are no good moves.
+	return Bad			
 ```
 
   At its core, all game-playing programs are ultimately based on this simple backtracking strategy. However, since most games have an enormous number of states, it is not possible to traverse the entire game tree in practice. Instead, game programs employ other heuristics to *prune* the game tree, by ignoring states that are obviously good or bad, or at least better or worse than other states, and/or by cutting off the tree at a certain depth ( or *ply ) and using a more efficient heuristic to evaluate the leaves.*
